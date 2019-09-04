@@ -14,7 +14,7 @@
     "eject": "react-scripts eject",
     "ssat:start": "my-server -p 3030",
     "cy:run": "npx cypress run",
-    "ssat:test": "start-server-and-test start http://localhost:3030 cy:run"
+    "ssat:test": "start-server-and-test start http://localhost:3000 cy:run"
   },
   "eslintConfig": {
     "extends": "react-app"
