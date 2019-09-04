@@ -1,0 +1,128 @@
+@import "vars";
+@import "anim";
+
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 20px;
+    background-color: $backgroundColor;
+    background: linear-gradient(to right, rgb(92, 92, 92), rgb(114, 114, 114), rgb(92, 92, 92));
+}
+
+div {
+    &[player="X"] {
+        color: $pastelRed;
+    }
+
+    &[player="O"] {
+        color: $pastelBlue;
+    }
+}
+
+button {
+    &.jump-button {
+        width: 100%;
+        height: 20px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background-color: $btnBackground;
+        color: $pastelPurple;
+        transition: background-color ease-in-out 0.5s;
+        user-select: none;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.15);
+            border: 1px solid $pastelPurple;
+            color: white;
+        }
+    }
+
+    &[player="X"] {
+        color: $pastelRed;
+    }
+
+    &[player="O"] {
+        color: $pastelBlue;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: white;
+        box-shadow: 1px 1px 10px white;
+        z-index: 2;
+    }
+}
+
+.game {
+    display: grid;
+    grid-gap: 10px;
+}
+
+.game-board {
+    display: grid;
+    grid-template: auto auto auto / auto auto auto;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.square {
+    background: $btnBackground;
+    border: 1px solid $pastelPurple;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: cursive;
+    line-height: $squareLength;
+    height: $squareLength;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    user-select: none;
+    text-align: center;
+    width: $squareLength;
+    transition: all 0.5s ease-in-out;
+    transition-property: width, height, font-size, line-height;
+
+    @media #{$tablet} {
+        height: $squareLength * 1.5;
+        width: $squareLength * 1.5;
+        line-height: $squareLength * 1.5;
+        font-size: $squareFontSize * 1.5;
+    }
+
+    @media #{$desktop} {
+        height: $squareLength * 2;
+        width: $squareLength * 2;
+        line-height: $squareLength * 2;
+        font-size: $squareFontSize * 2;
+    }
+
+    &[winner="yes"] {
+        animation: glow infinite alternate 1s;
+    }
+}
+
+.game-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+
+    @media #{$tablet} {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media #{$desktop} {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.status {
+    grid-column: 1/-1;
+    justify-self: center;
+    background: $btnBackground;
+    padding: 5px 20px 5px 20px;
+    text-align: center;
+    border-radius: 5px;
+    user-select: none;
+}
