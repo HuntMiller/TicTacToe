@@ -1,4 +1,5 @@
 [![Build Status](https://aptera.visualstudio.com/academy/_apis/build/status/HuntMiller.TicTacToe?branchName=master)](https://aptera.visualstudio.com/academy/_build/latest?definitionId=162&branchName=master)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
